@@ -1,0 +1,58 @@
+name: default
+description: >
+  Reliability suite for the bundled RAG handbook corpus. Twelve in-corpus
+  questions with gold document labels, plus two out-of-corpus questions that the
+  confidence gate is expected to refuse. Retrieval, answer-quality and gate
+  behaviour are all measured from these cases.
+top_k: 4
+gate_threshold: 0.12
+
+cases:
+  - id: ret-most-failures
+    query: Why do most RAG systems fail at the retrieval stage?
+    relevant_docs: [retrieval]
+  - id: ret-hybrid-fusion
+    query: What is hybrid retrieval and reciprocal rank fusion?
+    relevant_docs: [retrieval]
+
+  - id: eval-retrieval-metrics
+    query: Which retrieval metrics measure RAG quality, like hit rate and mean reciprocal rank?
+    relevant_docs: [evaluation]
+  - id: eval-groundedness
+    query: How is groundedness or faithfulness of an answer measured?
+    relevant_docs: [evaluation]
+
+  - id: gate-what-is
+    query: What is a confidence gate and when does the system refuse to answer?
+    relevant_docs: [gating]
+  - id: gate-precision-recall
+    query: Why measure the precision and recall of the refusal decision?
+    relevant_docs: [gating]
+
+  - id: obs-trace-contents
+    query: What does a per-query observability trace record about a query?
+    relevant_docs: [observability]
+  - id: obs-jsonl
+    query: Why emit observability traces as structured JSON lines?
+    relevant_docs: [observability]
+
+  - id: cicd-fail-build
+    query: How does a regression gate fail the build in continuous integration?
+    relevant_docs: [regression_gating]
+  - id: cicd-baseline
+    query: What is the role of a committed baseline and a tolerance in the regression gate?
+    relevant_docs: [regression_gating]
+
+  - id: sec-access-control
+    query: Where should access control happen in a RAG system, at retrieval or generation?
+    relevant_docs: [security]
+  - id: sec-prompt-injection
+    query: What is prompt injection and how do you defend against it?
+    relevant_docs: [security]
+
+  - id: refuse-vacation
+    query: How much paid annual leave do interns receive?
+    expect_refusal: true
+  - id: refuse-capital
+    query: What is the capital of France?
+    expect_refusal: true

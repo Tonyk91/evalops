@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+
+# Run outputs are regenerated on every run; baseline is the committed source of truth.
+reports/*
+!reports/.gitkeep
